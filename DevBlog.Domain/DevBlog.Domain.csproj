@@ -89,6 +89,7 @@
     <Compile Include="Models\PortfolioPost.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Tag.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Repo\AccountRepository.cs" />
     <Compile Include="Repo\BlogPostRepository.cs" />
     <Compile Include="Repo\CategoryRepository.cs" />
