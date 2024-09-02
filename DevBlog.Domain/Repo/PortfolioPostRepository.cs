@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DevBlog.Domain.IRepo;
 using DevBlog.Domain.Models;
 
 namespace DevBlog.Domain.Repo
 {
-    public class PortfolioPostRepository
+    public class PortfolioPostRepository : IPost<PortfolioPost>
     {
         private List<PortfolioPost> _posts = [];
 

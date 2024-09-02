@@ -77,6 +77,11 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRepo\IAccountRepository.cs" />
+    <Compile Include="IRepo\ICategoryRepository.cs" />
+    <Compile Include="IRepo\ICommentRepository.cs" />
+    <Compile Include="IRepo\IPost.cs" />
+    <Compile Include="IRepo\ITagRepository.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\BlogPost.cs" />
     <Compile Include="Models\Category.cs" />

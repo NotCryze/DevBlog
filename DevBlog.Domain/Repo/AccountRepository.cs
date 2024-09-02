@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DevBlog.Domain.IRepo;
 using DevBlog.Domain.Models;
 
 namespace DevBlog.Domain.Repo
 {
-    public class AccountRepository
+    public class AccountRepository : IAccountRepository
     {
         private List<Account> _accounts = [];
 
