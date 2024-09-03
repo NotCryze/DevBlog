@@ -12,7 +12,7 @@ namespace DevBlog.UnitTest
             string lastName = "Doe";
             string email = "johndoe@example.com";
             string password = "P@ssw0rd";
-            string expected = "John Doe";
+            string expectedFullName = "John Doe";
 
             // Act
             Account account = new Account(firstName, lastName, email, password);
@@ -20,7 +20,7 @@ namespace DevBlog.UnitTest
             // Assert
             Assert.Equal(firstName, account.FirstName);
             Assert.Equal(lastName, account.LastName);
-            Assert.Equal(expected, account.FullName);
+            Assert.Equal(expectedFullName, account.FullName);
             Assert.Equal(email, account.Email);
             Assert.Equal(password, account.Password);
             Assert.False(account.IsAdmin);
@@ -35,6 +35,7 @@ namespace DevBlog.UnitTest
             string email = "johndoe@example.com";
             string password = "P@ssw0rd";
             bool isAdmin = true;
+            string expectedFullName = "John Doe";
 
             // Act
             Account account = new Account(firstName, lastName, email, password, isAdmin);
@@ -42,7 +43,7 @@ namespace DevBlog.UnitTest
             // Assert
             Assert.Equal(firstName, account.FirstName);
             Assert.Equal(lastName, account.LastName);
-            Assert.Equal(firstName + " " + lastName, account.FullName);
+            Assert.Equal(expectedFullName, account.FullName);
             Assert.Equal(email, account.Email);
             Assert.Equal(password, account.Password);
             Assert.True(account.IsAdmin);
