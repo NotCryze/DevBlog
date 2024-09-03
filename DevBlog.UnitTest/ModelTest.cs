@@ -4,8 +4,8 @@ namespace DevBlog.UnitTest
 {
     public class ModelTest
     {
-        [Fact(DisplayName = "CreateAccount")]
-        public void CreateAccount()
+        [Fact(DisplayName = "Create Account")]
+        public void Create()
         {
             // Arrange
             string firstName = "John";
