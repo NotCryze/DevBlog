@@ -25,39 +25,43 @@ namespace DevBlog.Domain
             ICommentRepository? commentService = services.GetService<ICommentRepository>();
             ITagRepository? tagService = services.GetService<ITagRepository>();
             IPost<BlogPost>? blogPostService = services.GetService<IPost<BlogPost>>();
+            IPost<PortfolioPost>? portfolioPostService = services.GetService<IPost<PortfolioPost>>();
 
 
             #region Account Service Debugging
 
-            Console.WriteLine("\n---Account Service Debugging---");
+            Console.WriteLine("---Account Service Debugging---");
 
-            Account? account = accountService.CreateAccount(new Account("Hans", "Jürgen", "Hans@gg.com", "1234"));
-            Account? account2 = accountService.CreateAccount(new Account("Hans", "Jürgen", "Hans@gge.com", "1234"));
-            Account? account3 = accountService.CreateAccount(new Account("Hans", "Jürgen", "Hans@ggr.com", "1234"));
-            Console.WriteLine(account.FirstName);
-            Console.WriteLine(account.LastName);
-            Console.WriteLine(account.FullName);
+            Account? testAccount = accountService.CreateAccount(new Account("John", "Doe", "johndoe@example.com", "1234"));
+            accountService.CreateAccount(new Account("Benjamin", "Blümchen", "benblü@example.com", "1234"));
+            accountService.CreateAccount(new Account("Hans", "Jürgen", "hansjür@example.com", "1234"));
+            
+            Console.WriteLine("First Name: " + testAccount.FirstName);
+            Console.WriteLine("Last Name: " + testAccount.LastName);
+            Console.WriteLine("Full Name: " + testAccount.FullName);
+            Console.WriteLine("Email: " + testAccount.Email);
 
-            bool updatedSuccess = accountService.UpdateAccount(new Account(account.Id, "Harald", "Crack", "Hansi@gg.de", "12345", true, account.UpdatedAt, account.CreatedAt, account.Posts));
-            Console.WriteLine(updatedSuccess);
+            bool updatedSuccess = accountService.UpdateAccount(new Account(testAccount.Id, "Doe", "John", "doejohn@example.com", "12345", true, DateTime.Now, testAccount.CreatedAt, testAccount.Posts));
+            Console.WriteLine("\nUpdated: " + updatedSuccess);
 
-            Account? newAccount = accountService.GetAccountByEmail("Hansi@gg.de");
-            Console.WriteLine("\nUpdated Account");
-            Console.WriteLine(newAccount.FirstName);
-            Console.WriteLine(newAccount.LastName);
-            Console.WriteLine(newAccount.FullName);
+            Account? newAccount = accountService.GetAccountByEmail("doejohn@example.com");
+            Console.WriteLine("\n-Updated Account");
+            Console.WriteLine("First Name: " + newAccount.FirstName);
+            Console.WriteLine("Last Name: " + newAccount.LastName);
+            Console.WriteLine("Full Name: " + newAccount.FullName);
+            Console.WriteLine("Email: " + newAccount.Email);
 
             List<Account> allAccounts = accountService.GetAccounts();
-            Console.WriteLine("\nAll Accounts");
+            Console.WriteLine("\n-All Accounts");
             foreach (Account _account in allAccounts)
             {
                 Console.WriteLine(_account.Email);
             }
 
-            bool deletedSuccess = accountService.DeleteAccount(account.Id);
+            bool deletedSuccess = accountService.DeleteAccount(testAccount.Id);
             Console.WriteLine("\nDeleted: " + deletedSuccess);
 
-            Console.WriteLine("\nAll Accounts after delete");
+            Console.WriteLine("\n-All Accounts after delete");
             foreach (Account _account in allAccounts)
             {
                 Console.WriteLine(_account.Email);
@@ -67,55 +71,73 @@ namespace DevBlog.Domain
 
             #region Category Service Debugging
 
-            Console.WriteLine("\n---Category Service Debugging---");
+            //Console.WriteLine("\n---Category Service Debugging---");
 
-            Category testCategory = categoryService.CreateCategory(new Category("Category1"));
-            Category category = categoryService.GetCategory(testCategory.Id);
+            //Category testCategory = categoryService.CreateCategory(new Category("Category1"));
+            //Category category = categoryService.GetCategory(testCategory.Id);
 
-            Console.WriteLine(category.Name);
+            //Console.WriteLine(category.Name);
 
-            categoryService.UpdateCategory(new Category(testCategory.Id, "Category1Updated", testCategory.Posts, testCategory.CreatedAt));
+            //categoryService.UpdateCategory(new Category(testCategory.Id, "Category1Updated", testCategory.Posts, testCategory.CreatedAt));
 
-            Category updatedCategory = categoryService.GetCategory(testCategory.Id);
+            //Category updatedCategory = categoryService.GetCategory(testCategory.Id);
 
-            Console.WriteLine(updatedCategory.Name);
+            //Console.WriteLine(updatedCategory.Name);
 
             #endregion
 
             #region Tag Service Debugging
 
-            Console.WriteLine("\n---Tag Service Debugging---");
+            //Console.WriteLine("\n---Tag Service Debugging---");
 
-            Tag testTag = tagService.CreateTag(new Tag("Tag1"));
-            Tag tag = tagService.GetTag(testTag.Id);
+            //Tag testTag = tagService.CreateTag(new Tag("Tag1"));
+            //Tag tag = tagService.GetTag(testTag.Id);
 
-            Console.WriteLine(tag.Name);
+            //Console.WriteLine(tag.Name);
 
-            tagService.UpdateTag(new Tag(testTag.Id, "Tag1Updated", testTag.CreatedAt));
-            Tag updatedTag = tagService.GetTag(testTag.Id);
+            //tagService.UpdateTag(new Tag(testTag.Id, "Tag1Updated", testTag.CreatedAt));
+            //Tag updatedTag = tagService.GetTag(testTag.Id);
 
-            Console.WriteLine(updatedTag.Name);
-
-            #endregion
-
-            #region Comment Service Debugging
-
-            //commentService.CreateComment(new Comment());
+            //Console.WriteLine(updatedTag.Name);
 
             #endregion
 
             #region BlogPost Service Debugging
 
-            Console.WriteLine("\n---BlogPost Service Debugging---");
+            //Console.WriteLine("\n---BlogPost Service Debugging---");
 
-            BlogPost? testBlogPost = blogPostService.CreatePost(new BlogPost(newAccount, "BlogPostTitle", "Hello World!", ["1.png", "2.png"], updatedCategory, [updatedTag]));
-            BlogPost? blogPost = blogPostService.GetPost(testBlogPost.Id);
+            //BlogPost? testBlogPost = blogPostService.CreatePost(new BlogPost(newAccount, "BlogPostTitle", "Hello World!", ["1.png", "2.png"], updatedCategory, [updatedTag]));
+            //BlogPost? blogPost = blogPostService.GetPost(testBlogPost.Id);
 
-            Console.WriteLine("BlogPost Title: " + blogPost.Title);
-            Console.WriteLine("BlogPost Content: " + blogPost.Content);
+            //Console.WriteLine("BlogPost Title: " + blogPost.Title);
+            //Console.WriteLine("BlogPost Content: " + blogPost.Content);
 
             #endregion
 
+            #region Comment Service Debugging
+            
+            //Console.WriteLine("\n---Comment Service Debugging---");
+
+            //Comment testComment = commentService.CreateComment(new Comment(blogPost, "Et eller andet comment.", newAccount));
+            //Comment comment = commentService.GetComment(testComment.Id);
+
+            //Console.WriteLine(comment.Id);
+            //Console.WriteLine(comment.Content);
+            //Console.WriteLine(comment.Author.FullName);
+
+            #endregion
+
+            #region PortfolioPost Service Debugging
+
+            //Console.WriteLine("\n---PortfolioPost Service Debugging---");
+
+            //PortfolioPost? testPortfolioPost = portfolioPostService.CreatePost(new PortfolioPost(newAccount, "PortfolioPostTitle", "Hello World!", ["1.png", "2.png"], updatedCategory, [updatedTag]));
+            //PortfolioPost? portfolioPost = portfolioPostService.GetPost(testPortfolioPost.Id);
+
+            //Console.WriteLine("PortfolioPost Title: " + portfolioPost.Title);
+            //Console.WriteLine("PortfolioPost Content: " + portfolioPost.Content);
+
+            #endregion
         }
     }
 }
