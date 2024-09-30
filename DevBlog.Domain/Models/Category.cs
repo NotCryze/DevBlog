@@ -8,7 +8,7 @@ namespace DevBlog.Domain.Models
         public Guid Id { get; set; } = Guid.NewGuid();
         public List<Post> Posts { get; set; } = [];
         public string Name { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; } = DateTime.Now;
         public Category(string name)
         {
             Name = name;

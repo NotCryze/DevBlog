@@ -11,7 +11,7 @@ namespace DevBlog.Domain.Models
         public string Content { get; set; }
         public List<string> Images { get; set; }
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; } = DateTime.Now;
         public Category Category { get; set; }
         public List<Tag> Tags { get; set; }
 

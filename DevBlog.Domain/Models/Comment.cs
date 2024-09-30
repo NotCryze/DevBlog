@@ -9,7 +9,7 @@ namespace DevBlog.Domain.Models
         public string Content { get; set; }
         public Account Author { get; set; }
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; } = DateTime.Now;
 
         public Comment(BlogPost blogPost, string content, Account author)
         {

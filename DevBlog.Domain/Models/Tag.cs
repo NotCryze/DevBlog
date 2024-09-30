@@ -6,7 +6,7 @@ namespace DevBlog.Domain.Models
     {
         public Guid Id { get; set; } = Guid.NewGuid();
         public string Name { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; } = DateTime.Now;
 
 
         public Tag(string name)
