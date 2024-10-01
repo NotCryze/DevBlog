@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DevBlog.Domain\DevBlog.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
