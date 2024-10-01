@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DevBlog.Domain.IRepo
 {
-    public interface IPost<T>
+    public interface IPost<T> where T : IPostable
     {
         T? CreatePost(T post);
         T? GetPost(Guid id);
