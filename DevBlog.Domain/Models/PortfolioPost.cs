@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace DevBlog.Domain.Models
 {
-    public class PortfolioPost : Post, IPostable
+    public class PortfolioPost : Post
     {
         public PortfolioPost(Account account, string title, string content, List<string> images, Category category, List<Tag> tags)
             : base(account, title, content, images, category, tags)
