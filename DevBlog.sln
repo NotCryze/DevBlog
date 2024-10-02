@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevBlog.Domain", "DevBlog.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevBlog.UnitTest", "DevBlog.UnitTest\DevBlog.UnitTest.csproj", "{FD016367-9B04-4298-A706-EB7DA03C31EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevBlog.Web", "DevBlog.Web\DevBlog.Web.csproj", "{2CC5B9E2-6781-4721-9C4F-A9B739AF98F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevBlog.Web", "DevBlog.Web\DevBlog.Web.csproj", "{2CC5B9E2-6781-4721-9C4F-A9B739AF98F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
