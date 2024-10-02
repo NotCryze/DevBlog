@@ -4,3 +4,7 @@
     ViewData["Title"] = "Home";
 }
 
+@foreach(var account in Model.Accounts)
+{
+    <p>@account.FullName</p>
+}
