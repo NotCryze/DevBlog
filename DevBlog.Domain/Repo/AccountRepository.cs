@@ -8,6 +8,10 @@ namespace DevBlog.Domain.Repo
 {
     public class AccountRepository : IAccountRepository
     {
+        public AccountRepository()
+        {
+            _accounts.Add(new Account("John", "Doe", "admin@example.com", "1234", true)); //Hard coded admin account
+        }
         private List<Account> _accounts = [];
 
         public Account? CreateAccount(Account account)
