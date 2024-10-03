@@ -4,6 +4,11 @@
 ## Description
 Dev Blog is a platform where users can share their projects and create posts where other users can share their thoughts.
 
+## Project Details
+| Platform | GUI | Database Solution |
+|----------|-----|-------------------|
+| Web Application  | Razor Pages | Not implemented |
+
 ## Changelog
 ### v0.6.0
 - Added current class diagram
@@ -52,13 +57,13 @@ Dev Blog is a platform where users can share their projects and create posts whe
     - [X] 2.1 A user should be able to login where something like Id and other important information is saved in session(cookies)
   - [X] 3. Logout
     - [X] 3.1 A user should be able to log out to clear the session cookies
-  - [ ] 4. Index page
-    - [ ] 4.1 Display recent blogposts and be able to click on them to see the details of the blogpost like Author, Title, Images, Tags and Comments
-  - [ ] 5. Profile (A page to display a users blogposts and portfolioposts)
-    - [ ] 5.1 Blog
-      - [ ] 5.1.1 CRUD Blogpost
-        - [ ] 5.1.1.1 A user should be able to add tags and categories to their post
-    - [ ] 5.2 Portfolio
+  - [X] 4. Index page
+    - [X] 4.1 Display recent blogposts and be able to click on them to see the details of the blogpost like Author, Title, Images, Tags and Comments
+  - [X] 5. Profile (A page to display a users blogposts and portfolioposts)
+    - [X] 5.1 Blog
+      - [X] 5.1.1 CRUD Blogpost
+        - [X] 5.1.1.1 A user should be able to add tags and categories to their post
+    - [ ] 5.2 Portfolio (Optional)
       - [ ] 5.2.1 A user should be able to add tags and categories to their post
       - [ ] 5.2.2 CRUD Portfoliopost
   - [ ] 6. Optional
@@ -67,7 +72,7 @@ Dev Blog is a platform where users can share their projects and create posts whe
       - [ ] 6.1.2 CRUD Tags
       - [ ] 6.1.3 CRUD Categories
     - [ ] 6.2 CRUD Comments
-  
+
 ## Class Diagram
 ### Current Class Diagram
 ![image](https://github.com/user-attachments/assets/1234f8e6-0c4f-405e-98bc-2f5fe55af9ce)
