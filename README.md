@@ -44,10 +44,28 @@ Dev Blog is a platform where users can share their projects and create posts whe
   - Tag
 
 ## ToDo
-- [ ] Front End
-  - [ ] Login & Register
-  - [ ] Profile (Blog & Portfolio)
-  - [ ] Admin panel
+  - [X] Register
+    - [X] A user should be able to create a new account
+    - [X] A user should not be able to create an account with an already existing email
+    - [X] There should be validation both on front and server backend for the users input
+  - [ ] Login (Default page when accessing page the first time)
+    - [ ] A user should be able to login where something like Id and other important information is saved in session(cookies)
+  - [ ] Logout
+    - [ ] A user should be able to log out to clear the session cookies
+  - [ ] Index page
+    - [ ] Display recent blogposts and be able to click on them to see the details of the blogpost like Author, Title, Images, Tags and Comments
+  - [ ] Profile (A page to display a users blogposts and portfolioposts)
+    - [ ] Blog
+      - [ ] CRUD Blogpost
+        - [ ] A user should be able to add tags and categories to their post
+      - [ ] CRUD Comments
+        - [ ] A user should be able to add tags and categories to their post
+    - [ ] Portfolio
+      - [ ] CRUD Portfoliopost
+  - [ ] Admin panel (A page to manage other users and be able to create new admin accounts)
+    - [ ] CRUD Accounts
+    - [ ] CRUD Tags
+    - [ ] CRUD Categories
 - [ ] Database
 
 ## Class Diagram
