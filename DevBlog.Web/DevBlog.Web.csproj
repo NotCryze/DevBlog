@@ -15,4 +15,8 @@
     <ProjectReference Include="..\DevBlog.Domain\DevBlog.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
 </Project>

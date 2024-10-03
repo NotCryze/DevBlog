@@ -17,7 +17,7 @@
                         <h3 class="m-0">Blogposts</h3>
                         @if (Model.IsAccountOwner)
                         {
-                            <button class="btn btn-success"><i class="fa-solid fa-plus fa-fw"></i></button>
+                            <a class="btn btn-success" asp-page="/NewBlogpost"><i class="fa-solid fa-plus fa-fw"></i></a>
                         }
                     </div>
                     <div class="row">
@@ -25,13 +25,15 @@
                         {
                             @foreach (var blogpost in Model.Account.Blogposts)
                             {
-                                <div class="col-md-3">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="card-title">@blogpost.Title</h5>
-                                            <p class="card-text">@blogpost.Content</p>
+                                <div class="col-md-3 mb-3">
+                                    <a class="text-decoration-none" asp-page="Blogpost" asp-route-id="@blogpost.Id">
+                                        <div class="card overflow-hidden">
+                                            <div class="card-body overflow-hidden" style="max-height:150px">
+                                                <h5 class="card-title text-nowrap text-truncate">@blogpost.Title</h5>
+                                                <p class="card-text">@blogpost.Content</p>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             }
                         }

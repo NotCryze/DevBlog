@@ -2,6 +2,7 @@ using DevBlog.Domain.IRepo;
 using DevBlog.Domain.Repo;
 using DevBlog.Domain.Models;
 using DevBlog.Web.Middlewares;
+using Microsoft.AspNetCore.Http.Features;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,14 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
     options.Cookie.Name = "DBC";
 });
+
+builder.Services.Configure<FormOptions>(x =>
+{
+    x.ValueLengthLimit = int.MaxValue;
+    x.MultipartBodyLengthLimit = int.MaxValue;
+    x.MultipartHeadersLengthLimit = int.MaxValue;
+});
+
 
 var app = builder.Build();
 
