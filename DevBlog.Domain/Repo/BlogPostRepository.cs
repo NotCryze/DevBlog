@@ -31,6 +31,11 @@ namespace DevBlog.Domain.Repo
             return _posts.FindAll(p => p.Category.Id == category.Id);
         }
 
+        public List<BlogPost> GetPostsByAccountId(Guid accountId)
+        {
+            return _posts.FindAll(p => p.Account.Id == accountId);
+        }
+
         public bool UpdatePost(BlogPost newPost)
         {
             BlogPost? post = GetPost(newPost.Id);

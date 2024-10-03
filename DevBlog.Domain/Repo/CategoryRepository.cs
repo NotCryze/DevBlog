@@ -8,6 +8,14 @@ namespace DevBlog.Domain.Repo
 {
     public class CategoryRepository : ICategoryRepository
     {
+        public CategoryRepository()
+        {
+            CreateCategory(new Category("Web Development")); // Hard coded Example Category
+            CreateCategory(new Category("Machine Learning")); // Hard coded Example Category
+            CreateCategory(new Category("Testing & QA")); // Hard coded Example Category
+            CreateCategory(new Category("Game Development")); // Hard coded Example Category
+            CreateCategory(new Category("APIs & Integrations")); // Hard coded Example Category
+        }
         private List<Category> _categories = [];
 
         public Category? CreateCategory(Category category)

@@ -9,6 +9,7 @@ namespace DevBlog.Domain.IRepo
         T? CreatePost(T post);
         T? GetPost(Guid id);
         List<T> GetPosts();
+        List<T> GetPostsByAccountId(Guid accountId);
         bool UpdatePost(T newPost);
         bool DeletePost(Guid id);
     }

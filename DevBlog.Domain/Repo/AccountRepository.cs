@@ -12,6 +12,8 @@ namespace DevBlog.Domain.Repo
         public AccountRepository()
         {
             CreateAccount(new Account("John", "Doe", "admin@example.com", "1234", true)); //Hard coded admin account
+            CreateAccount(new Account("Benji", "Bob", "benji@bob.com", "1234")); //Hard coded normal account
+            CreateAccount(new Account("L", "Thoro", "L@thoro.com", "1234")); //Hard coded normal account
         }
         private List<Account> _accounts = [];
 

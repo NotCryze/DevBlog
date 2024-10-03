@@ -1,0 +1,75 @@
+﻿@page "{id:Guid}"
+@model DevBlog.Web.Pages.ProfileModel
+@{
+    ViewData["Title"] = "Profile";
+}
+
+@if (Model.Account != null)
+{
+
+    <h1 class="text-center">@(Model.Account.FullName)'s Profile</h1>
+
+    <div class="row mb-3">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between mb-3">
+                        <h3 class="m-0">Blogposts</h3>
+                        @if (Model.IsAccountOwner)
+                        {
+                            <button class="btn btn-success"><i class="fa-solid fa-plus fa-fw"></i></button>
+                        }
+                    </div>
+                    <div class="row">
+                        @if (Model.Account.Blogposts != null)
+                        {
+                            @foreach (var blogpost in Model.Account.Blogposts)
+                            {
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">@blogpost.Title</h5>
+                                            <p class="card-text">@blogpost.Content</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between mb-3">
+                        <h3 class="m-0">Portfolioposts</h3>
+                        @if (Model.IsAccountOwner)
+                        {
+                            <button class="btn btn-success"><i class="fa-solid fa-plus fa-fw"></i></button>
+                        }
+                    </div>
+                    <div class="row">
+                        @if (Model.Account.Portfolioposts != null)
+                        {
+                            @foreach (var blogpost in Model.Account.Portfolioposts)
+                            {
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">@blogpost.Title</h5>
+                                            <p class="card-text">@blogpost.Content</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

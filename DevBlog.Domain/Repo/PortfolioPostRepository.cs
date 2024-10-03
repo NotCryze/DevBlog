@@ -26,6 +26,11 @@ namespace DevBlog.Domain.Repo
             return _posts;
         }
 
+        public List<PortfolioPost> GetPostsByAccountId(Guid accountId)
+        {
+            return _posts.FindAll(p => p.Account.Id == accountId);
+        }
+
         public bool UpdatePost(PortfolioPost newPost)
         {
             PortfolioPost? post = GetPost(newPost.Id);

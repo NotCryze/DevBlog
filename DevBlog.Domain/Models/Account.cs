@@ -18,15 +18,17 @@ namespace DevBlog.Domain.Models
         public bool IsAdmin { get; set; } = isAdmin;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
         public DateTime CreatedAt { get; } = DateTime.Now;
-        public List<Post> Posts { get; set; } = [];
+        public List<BlogPost> Blogposts { get; set; } = [];
+        public List<PortfolioPost> Portfolioposts { get; set; } = [];
 
-        public Account(Guid id, string firstName, string lastName, string email, string password, bool isAdmin, DateTime updatedAt, DateTime createdAt, List<Post> posts) 
+        public Account(Guid id, string firstName, string lastName, string email, string password, bool isAdmin, DateTime updatedAt, DateTime createdAt, List<BlogPost> blogposts, List<PortfolioPost> portfolioposts) 
             : this(firstName, lastName, email, password, isAdmin)
         {
             Id = id;
             UpdatedAt = updatedAt;
             CreatedAt = createdAt;
-            Posts = posts;
+            Blogposts = blogposts;
+            Portfolioposts = portfolioposts;
         }
     }
 }

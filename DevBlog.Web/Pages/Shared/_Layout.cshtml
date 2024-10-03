@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/DevBlog.Web.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body data-bs-theme="dark">
     <header>
@@ -40,6 +41,7 @@
                                 <div class="dropdown">
                                     <button class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">@(((AccountDTO)Context.Items["User"]).FirstName)</button>
                                     <ul class="dropdown-menu  dropdown-menu-end">
+                                        <li><a class="dropdown-item" asp-area="" asp-page="/Profile" asp-route-id="@(((AccountDTO)Context.Items["User"]).Id)">Profile</a></li>
                                         <li><a class="dropdown-item" asp-area="" asp-page="/Account">Account</a></li>
                                         <li><a class="dropdown-item" asp-area="" asp-page="/Logout">Logout</a></li>
                                     </ul>

@@ -8,6 +8,14 @@ namespace DevBlog.Domain.Repo
 {
     public class TagRepository : ITagRepository
     {
+        public TagRepository()
+        {
+            CreateTag(new Tag("HTML")); // Hard coded example tag
+            CreateTag(new Tag("React")); // Hard coded example tag
+            CreateTag(new Tag("Python")); // Hard coded example tag
+            CreateTag(new Tag("Docker")); // Hard coded example tag
+            CreateTag(new Tag("Unity")); // Hard coded example tag
+        }
         private List<Tag> _tags = [];
 
         public Tag? CreateTag(Tag tag)
