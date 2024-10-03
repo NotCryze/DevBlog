@@ -3,3 +3,42 @@
 @{
     ViewData["Title"] = "Account";
 }
+
+<div class="row">
+    <div class="col-md-4 offset-md-2">
+        <div class="card">
+            <div class="card-body">
+                <div class="form-floating mb-3">
+                    <input class="form-control" asp-for="Account.FirstName" placeholder="First Name" disabled />
+                    <label for="firstname">First Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" asp-for="Account.LastName" placeholder="Last Name" disabled />
+                    <label for="lastname">Last Name</label>
+                </div>
+                <div class="form-floating">
+                    <input class="form-control" asp-for="Account.Email" placeholder="Email" disabled />
+                    <label for="email">Email</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="form-floating mb-3">
+                    <input class="form-control" placeholder="Old Password" disabled />
+                    <label for="oldpassword">Old Password</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" placeholder="New Password" disabled />
+                    <label for="newpassword">New Password</label>
+                </div>
+                <div class="form-floating">
+                    <input class="form-control" placeholder="Confirm New Password" disabled />
+                    <label for="confnewpassword">Confirm New Password</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
