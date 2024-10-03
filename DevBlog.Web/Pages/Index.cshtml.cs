@@ -7,18 +7,20 @@ namespace DevBlog.Web.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
-        private readonly IAccountRepository _accountService;
-        public IndexModel(ILogger<IndexModel> logger, IAccountRepository accountService)
+        private readonly IPost<BlogPost> _blogpostService;
+        private readonly IPost<PortfolioPost> _portfoliopostService;
+        public IndexModel(IPost<BlogPost> blogpostService, IPost<PortfolioPost> portfoliopostService)
         {
-            _logger = logger;
-            _accountService = accountService;
+            _blogpostService = blogpostService;
+            _portfoliopostService = portfoliopostService;
         }
 
-        public List<Account> Accounts { get; set; }
+        public List<BlogPost> RecentBlogposts { get; set; }
+        public List<PortfolioPost> RecentPortfolioposts { get; set; }
         public void OnGet()
         {
-            Accounts = _accountService.GetAccounts();
+            RecentBlogposts = _blogpostService.GetPosts().OrderByDescending(p => p.CreatedAt).Take(4).ToList();
+            RecentPortfolioposts = _portfoliopostService.GetPosts().OrderByDescending(p => p.CreatedAt).Take(4).ToList();
         }
     }
 }
