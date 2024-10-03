@@ -48,10 +48,10 @@ Dev Blog is a platform where users can share their projects and create posts whe
     - [X] 1.1 A user should be able to create a new account
     - [X] 1.2 A user should not be able to create an account with an already existing email
     - [X] 1.3 There should be validation both on front and server backend for the users input
-  - [ ] 2. Login (Default page when accessing page the first time)
-    - [ ] 2.1 A user should be able to login where something like Id and other important information is saved in session(cookies)
-  - [ ] 3. Logout
-    - [ ] 3.1 A user should be able to log out to clear the session cookies
+  - [X] 2. Login (Default page when accessing page the first time)
+    - [X] 2.1 A user should be able to login where something like Id and other important information is saved in session(cookies)
+  - [X] 3. Logout
+    - [X] 3.1 A user should be able to log out to clear the session cookies
   - [ ] 4. Index page
     - [ ] 4.1 Display recent blogposts and be able to click on them to see the details of the blogpost like Author, Title, Images, Tags and Comments
   - [ ] 5. Profile (A page to display a users blogposts and portfolioposts)
