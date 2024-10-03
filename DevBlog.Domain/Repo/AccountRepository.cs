@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DevBlog.Domain.IRepo;
 using DevBlog.Domain.Models;
+using BC = BCrypt.Net.BCrypt;
 
 namespace DevBlog.Domain.Repo
 {
@@ -10,12 +11,13 @@ namespace DevBlog.Domain.Repo
     {
         public AccountRepository()
         {
-            _accounts.Add(new Account("John", "Doe", "admin@example.com", "1234", true)); //Hard coded admin account
+            CreateAccount(new Account("John", "Doe", "admin@example.com", "1234", true)); //Hard coded admin account
         }
         private List<Account> _accounts = [];
 
         public Account? CreateAccount(Account account)
         {
+            account.Password = BC.EnhancedHashPassword(account.Password);
             if (CheckAccount(account))
             {
                 _accounts.Add(account);

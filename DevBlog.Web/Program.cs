@@ -1,6 +1,7 @@
 using DevBlog.Domain.IRepo;
 using DevBlog.Domain.Repo;
 using DevBlog.Domain.Models;
+using DevBlog.Web.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +21,7 @@ builder.Services.AddSession(options =>
     options.IdleTimeout = TimeSpan.FromHours(24);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
-    options.Cookie.Name = "DB";
+    options.Cookie.Name = "DBC";
 });
 
 var app = builder.Build();
@@ -43,5 +44,7 @@ app.UseAuthorization();
 app.UseSession();
 
 app.MapRazorPages();
+
+app.UseAuthMiddleware();
 
 app.Run();
