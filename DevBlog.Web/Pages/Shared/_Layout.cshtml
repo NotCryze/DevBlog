@@ -40,6 +40,7 @@
                                 <div class="dropdown">
                                     <button class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">@(((AccountDTO)Context.Items["User"]).FirstName)</button>
                                     <ul class="dropdown-menu  dropdown-menu-end">
+                                        <li><a class="dropdown-item" asp-area="" asp-page="/Account">Account</a></li>
                                         <li><a class="dropdown-item" asp-area="" asp-page="/Logout">Logout</a></li>
                                     </ul>
                                 </div>
