@@ -29,15 +29,17 @@ namespace DevBlog.Web.Pages
                 return Page();
             }
 
-            if (_accountService.CreateAccount(new Account(Register.FirstName, Register.LastName, Register.Email, Register.Password)) == null)
+            if (_accountService.GetAccountByEmail(Register.Email) != null)
             {
                 ModelState.AddModelError("Register.Email", "Email already exists");
             }
             else
             {
-                return RedirectToPagePermanent("Index");
+                if (_accountService.CreateAccount(new Account(Register.FirstName, Register.LastName, Register.Email, Register.Password)) != null)
+                {
+                    return RedirectToPage("/Login");
+                }
             }
-
             return Page();
         }
     }
