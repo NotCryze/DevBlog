@@ -9,16 +9,16 @@
     <div class="col-md-4 offset-md-4">
         <div class="card">
             <div class="card-body">
-                @foreach (var account in Model.Accounts)
-                {
-                    <a class="text-decoration-none" asp-page="Profile" asp-route-id="@account.Id">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">@account.FullName</h5>
-                            </div>
-                        </div>
-                    </a>
-                }
+                <ul class="list-group list-group-flush">
+                    @foreach (var account in Model.Accounts)
+                    {
+                        <a class="text-decoration-none" asp-page="Profile" asp-route-id="@account.Id">
+                        <li class="list-group-item mb-3">
+                            <h5 class="card-title text-center">@account.FullName <i class="fa-solid fa-up-right-from-square fa-fw"></i></h5>
+                        </li>
+                        </a>
+                    }
+                </ul>
             </div>
         </div>
     </div>
