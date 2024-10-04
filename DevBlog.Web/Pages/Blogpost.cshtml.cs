@@ -86,7 +86,6 @@ namespace DevBlog.Web.Pages
             {
                 return await OnGetAsync(id);
             }
-
             if (postToEdit.Account.Id != ((AccountDTO)HttpContext.Items["User"]).Id)
             {
                 return BadRequest();
@@ -123,7 +122,7 @@ namespace DevBlog.Web.Pages
                 _blogpostService.UpdatePost(new BlogPost(postToEdit.Id, postToEdit.Account, EditBlogpost.Title, EditBlogpost.Content, fileNames.Count > 0 ? fileNames : postToEdit.Images, category, tags, postToEdit.Comments, DateTime.Now, postToEdit.CreatedAt));
             }
 
-            return RedirectToPage("/Profile", new { id = ((AccountDTO)HttpContext.Items["User"]).Id });
+            return RedirectToPage("/Blogpost", new { id = postToEdit.Id });
         }
     }
 }

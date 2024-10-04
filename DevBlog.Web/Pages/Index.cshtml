@@ -38,16 +38,16 @@
             <a class="btn btn-success"><i class="fa-solid fa-plus fa-fw"></i></a>
         </div>
         <div class="row">
-            @if (Model.RecentBlogposts != null)
+            @if (Model.RecentPortfolioposts != null)
             {
-                @foreach (var blogpost in Model.RecentBlogposts)
+                @foreach (var portfolioPost in Model.RecentPortfolioposts)
                 {
                     <div class="col-md-3 mb-3">
-                        <a class="text-decoration-none" asp-page="Blogpost" asp-route-id="@blogpost.Id">
+                        <a class="text-decoration-none">
                             <div class="card overflow-hidden">
                                 <div class="card-body overflow-hidden" style="max-height:150px">
-                                    <h5 class="card-title text-nowrap text-truncate">@blogpost.Title</h5>
-                                    <p class="card-text">@blogpost.Content</p>
+                                    <h5 class="card-title text-nowrap text-truncate">@portfolioPost.Title</h5>
+                                    <p class="card-text">@portfolioPost.Content</p>
                                 </div>
                             </div>
                         </a>
