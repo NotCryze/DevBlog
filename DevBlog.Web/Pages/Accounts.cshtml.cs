@@ -14,9 +14,13 @@ namespace DevBlog.Web.Pages
         }
 
         public List<Account> Accounts { get; set; }
-        public void OnGet()
+        public void OnGet(string search)
         {
             Accounts = _accountService.GetAccounts();
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                Accounts = Accounts.FindAll(a => a.FullName.Contains(search));
+            }
         }
     }
 }
