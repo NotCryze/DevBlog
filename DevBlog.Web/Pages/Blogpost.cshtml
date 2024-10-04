@@ -91,7 +91,7 @@
                         <div class="col-md-12">
                             <div class="mb-3">
                                 <label for="content">Content</label>
-                                <textarea class="form-control @(ModelState.GetFieldValidationState("EditBlogpost.Content") == ModelValidationState.Invalid ? "is-invalid" : ModelState.GetValidationState("EditBlogpost.Content") == ModelValidationState.Valid ? "is-valid" : "" )" rows="3" placeholder="Type here..." asp-for="EditBlogpost.Content" style="resize:none">@(Model.Blogpost.Content)</textarea>
+                                <textarea class="form-control @(ModelState.GetFieldValidationState("EditBlogpost.Content") == ModelValidationState.Invalid ? "is-invalid" : ModelState.GetValidationState("EditBlogpost.Content") == ModelValidationState.Valid ? "is-valid" : "" )" rows="3" placeholder="Type here..." name="EditBlogpost.Content" id="EditBlogpost_Content" style="resize:none">@(Model.Blogpost.Content)</textarea>
                                 <span asp-validation-for="EditBlogpost.Content" class="invalid-feedback"></span>
                             </div>
                         </div>
