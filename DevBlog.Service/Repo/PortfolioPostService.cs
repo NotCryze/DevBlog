@@ -1,44 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DevBlog.Domain.IRepo;
-using DevBlog.Domain.Models;
+using DevBlog.Service.IRepo;
+using DevBlog.Service.Models;
 
-namespace DevBlog.Domain.Repo
+namespace DevBlog.Service.Repo
 {
-    public class BlogPostRepository : IPost<BlogPost>
+    public class PortfolioPostService : IPostService<PortfolioPost>
     {
-        private List<BlogPost> _posts = [];
+        private List<PortfolioPost> _posts = [];
 
-        public BlogPost? CreatePost(BlogPost post)
+        public PortfolioPost? CreatePost(PortfolioPost post)
         {
             _posts.Add(post);
             return post;
         }
 
-        public BlogPost? GetPost(Guid id)
+        public PortfolioPost? GetPost(Guid id)
         {
             return _posts.FirstOrDefault(p => p.Id == id);
         }
 
-        public List<BlogPost> GetPosts()
+        public List<PortfolioPost> GetPosts()
         {
             return _posts;
         }
 
-        public List<BlogPost> GetPostsByCategory(Category category)
-        {
-            return _posts.FindAll(p => p.Category.Id == category.Id);
-        }
-
-        public List<BlogPost> GetPostsByAccountId(Guid accountId)
+        public List<PortfolioPost> GetPostsByAccountId(Guid accountId)
         {
             return _posts.FindAll(p => p.Account.Id == accountId);
         }
 
-        public bool UpdatePost(BlogPost newPost)
+        public bool UpdatePost(PortfolioPost newPost)
         {
-            BlogPost? post = GetPost(newPost.Id);
+            PortfolioPost? post = GetPost(newPost.Id);
 
             if (post != null)
             {
@@ -51,7 +46,7 @@ namespace DevBlog.Domain.Repo
 
         public bool DeletePost(Guid id)
         {
-            BlogPost? post = GetPost(id);
+            PortfolioPost? post = GetPost(id);
 
             if (post != null)
             {

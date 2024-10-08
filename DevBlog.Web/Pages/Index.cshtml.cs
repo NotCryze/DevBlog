@@ -1,5 +1,5 @@
-using DevBlog.Domain.IRepo;
-using DevBlog.Domain.Models;
+using DevBlog.Service.IRepo;
+using DevBlog.Service.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -7,9 +7,9 @@ namespace DevBlog.Web.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly IPost<BlogPost> _blogpostService;
-        private readonly IPost<PortfolioPost> _portfoliopostService;
-        public IndexModel(IPost<BlogPost> blogpostService, IPost<PortfolioPost> portfoliopostService)
+        private readonly IPostService<BlogPost> _blogpostService;
+        private readonly IPostService<PortfolioPost> _portfoliopostService;
+        public IndexModel(IPostService<BlogPost> blogpostService, IPostService<PortfolioPost> portfoliopostService)
         {
             _blogpostService = blogpostService;
             _portfoliopostService = portfoliopostService;
@@ -19,8 +19,8 @@ namespace DevBlog.Web.Pages
         public List<PortfolioPost> RecentPortfolioposts { get; set; }
         public void OnGet()
         {
-            RecentBlogposts = _blogpostService.GetPosts().OrderByDescending(p => p.CreatedAt).Take(4).ToList();
-            RecentPortfolioposts = _portfoliopostService.GetPosts().OrderByDescending(p => p.CreatedAt).Take(4).ToList();
+            RecentBlogposts = _blogpostService.GetPosts().OrderByDescending(p => p.TimeRegistration.CreatedAt).Take(4).ToList();
+            RecentPortfolioposts = _portfoliopostService.GetPosts().OrderByDescending(p => p.TimeRegistration.CreatedAt).Take(4).ToList();
         }
     }
 }

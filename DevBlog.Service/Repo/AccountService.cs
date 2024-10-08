@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DevBlog.Domain.IRepo;
-using DevBlog.Domain.Models;
+using DevBlog.Service.IRepo;
+using DevBlog.Service.Models;
 using BC = BCrypt.Net.BCrypt;
 
-namespace DevBlog.Domain.Repo
+namespace DevBlog.Service.Repo
 {
-    public class AccountRepository : IAccountRepository
+    public class AccountService : IAccountService
     {
-        public AccountRepository()
+        public AccountService()
         {
             CreateAccount(new Account("John", "Doe", "admin@example.com", "1234", true)); //Hard coded admin account
             CreateAccount(new Account("Benji", "Bob", "benji@bob.com", "1234")); //Hard coded normal account

@@ -1,5 +1,5 @@
-using DevBlog.Domain.IRepo;
-using DevBlog.Domain.Models;
+using DevBlog.Service.IRepo;
+using DevBlog.Service.Models;
 using DevBlog.Web.DTO;
 using DevBlog.Web.Extensions;
 using Microsoft.AspNetCore.Mvc;
@@ -10,8 +10,8 @@ namespace DevBlog.Web.Pages
 {
     public class LoginModel : PageModel
     {
-        private readonly IAccountRepository _accountService;
-        public LoginModel(IAccountRepository accountService)
+        private readonly IAccountService _accountService;
+        public LoginModel(IAccountService accountService)
         {
             _accountService = accountService;
         }

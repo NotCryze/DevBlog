@@ -1,5 +1,5 @@
-using DevBlog.Domain.IRepo;
-using DevBlog.Domain.Models;
+using DevBlog.Service.IRepo;
+using DevBlog.Service.Models;
 using DevBlog.Web.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,11 +9,11 @@ namespace DevBlog.Web.Pages
 {
     public class BlogpostModel : PageModel
     {
-        private readonly IPost<BlogPost> _blogpostService;
-        private readonly ICategoryRepository _categoryService;
-        private readonly ITagRepository _tagService;
+        private readonly IPostService<BlogPost> _blogpostService;
+        private readonly ICategoryService _categoryService;
+        private readonly ITagService _tagService;
         private readonly IWebHostEnvironment _environment;
-        public BlogpostModel(IPost<BlogPost> blogpostService, ICategoryRepository categoryService, ITagRepository tagService, IWebHostEnvironment environment)
+        public BlogpostModel(IPostService<BlogPost> blogpostService, ICategoryService categoryService, ITagService tagService, IWebHostEnvironment environment)
         {
             _blogpostService = blogpostService;
             _categoryService = categoryService;
@@ -93,7 +93,7 @@ namespace DevBlog.Web.Pages
             else
             {
 
-                List<string> fileNames = new List<string>();
+                List<PostImage> images = new List<PostImage>();
                 foreach (IFormFile image in EditBlogpost.Images)
                 {
                     Guid guid = Guid.NewGuid();
@@ -103,7 +103,7 @@ namespace DevBlog.Web.Pages
                     {
                         await image.CopyToAsync(fileStream);
                     }
-                    fileNames.Add(fileName);
+                    images.Add(new PostImage(fileName));
                 }
 
                 List<Tag> tags = new List<Tag>();
@@ -119,7 +119,8 @@ namespace DevBlog.Web.Pages
 
                 Category? category = _categoryService.GetCategory(EditBlogpost.CategoryId);
 
-                _blogpostService.UpdatePost(new BlogPost(postToEdit.Id, postToEdit.Account, EditBlogpost.Title, EditBlogpost.Content, fileNames.Count > 0 ? fileNames : postToEdit.Images, category, tags, postToEdit.Comments, DateTime.Now, postToEdit.CreatedAt));
+                postToEdit.TimeRegistration.UpdatedAt = DateTime.Now;
+                _blogpostService.UpdatePost(new BlogPost(postToEdit.Id, postToEdit.Account, EditBlogpost.Title, EditBlogpost.Content, images.Count > 0 ? images : postToEdit.Images, category, tags, postToEdit.Comments, postToEdit.TimeRegistration));
             }
 
             return RedirectToPage("/Blogpost", new { id = postToEdit.Id });

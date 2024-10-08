@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DevBlog.Domain.IRepo;
-using DevBlog.Domain.Models;
+using DevBlog.Service.IRepo;
+using DevBlog.Service.Models;
 
-namespace DevBlog.Domain.Repo
+namespace DevBlog.Service.Repo
 {
-    public class CommentRepository : ICommentRepository
+    public class CommentService : ICommentService
     {
         private List<Comment> _comments = [];
 

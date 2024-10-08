@@ -1,10 +1,10 @@
-﻿using DevBlog.Domain.Models;
+﻿using DevBlog.Service.Models;
 using System;
 using System.Collections.Generic;
 
-namespace DevBlog.Domain.IRepo
+namespace DevBlog.Service.IRepo
 {
-    public interface IPost<T> where T : Post
+    public interface IPostService<T> where T : Post
     {
         T? CreatePost(T post);
         T? GetPost(Guid id);

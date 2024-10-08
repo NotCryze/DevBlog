@@ -24,7 +24,7 @@
                     </div>
                     <div class="col-md-4 col-sm d-flex flex-column">
                         <h2>@Model.Blogpost.Account.FullName</h2>
-                        <h5 class="card-subtitle text-muted">@Model.Blogpost.CreatedAt @((Model.Blogpost.UpdatedAt - Model.Blogpost.CreatedAt).TotalSeconds > 5 ? $"({Model.Blogpost.UpdatedAt})" : "")</h5>
+                        <h5 class="card-subtitle text-muted">@Model.Blogpost.TimeRegistration.CreatedAt @((Model.Blogpost.TimeRegistration.UpdatedAt - Model.Blogpost.TimeRegistration.CreatedAt).TotalSeconds > 5 ? $"({Model.Blogpost.TimeRegistration.UpdatedAt})" : "")</h5>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -42,7 +42,7 @@
                 <div>
                     @foreach (var image in Model.Blogpost.Images)
                     {
-                        <img class="img-fluid img-thumbnail mb-3" src="~/img/@image" style="aspect-ratio: 5/2; height: 400px" />
+                        <img class="img-fluid img-thumbnail mb-3" src="~/img/@image.Name" style="aspect-ratio: 5/2; height: 400px" />
                     }
                 </div>
             </div>

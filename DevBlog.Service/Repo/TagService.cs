@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DevBlog.Domain.IRepo;
-using DevBlog.Domain.Models;
+using DevBlog.Service.IRepo;
+using DevBlog.Service.Models;
 
-namespace DevBlog.Domain.Repo
+namespace DevBlog.Service.Repo
 {
-    public class TagRepository : ITagRepository
+    public class TagService : ITagService
     {
-        public TagRepository()
+        public TagService()
         {
             CreateTag(new Tag("HTML")); // Hard coded example tag
             CreateTag(new Tag("React")); // Hard coded example tag

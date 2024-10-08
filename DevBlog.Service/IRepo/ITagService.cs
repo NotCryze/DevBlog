@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using DevBlog.Domain.Models;
+using DevBlog.Service.Models;
 
-namespace DevBlog.Domain.IRepo
+namespace DevBlog.Service.IRepo
 {
-    public interface ITagRepository
+    public interface ITagService
     {
         Tag? CreateTag(Tag tag);
         bool DeleteTag(Guid id);

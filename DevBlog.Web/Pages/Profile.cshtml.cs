@@ -1,5 +1,5 @@
-using DevBlog.Domain.IRepo;
-using DevBlog.Domain.Models;
+using DevBlog.Service.IRepo;
+using DevBlog.Service.Models;
 using DevBlog.Web.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -8,10 +8,10 @@ namespace DevBlog.Web.Pages
 {
     public class ProfileModel : PageModel
     {
-        private readonly IAccountRepository _accountService;
-        private readonly IPost<BlogPost> _blogpostService;
-        private readonly IPost<PortfolioPost> _portfoliopostService;
-        public ProfileModel(IAccountRepository accountService, IPost<BlogPost> blogpostService, IPost<PortfolioPost> portfoliopostService)
+        private readonly IAccountService _accountService;
+        private readonly IPostService<BlogPost> _blogpostService;
+        private readonly IPostService<PortfolioPost> _portfoliopostService;
+        public ProfileModel(IAccountService accountService, IPostService<BlogPost> blogpostService, IPostService<PortfolioPost> portfoliopostService)
         {
             _accountService = accountService;
             _blogpostService = blogpostService;

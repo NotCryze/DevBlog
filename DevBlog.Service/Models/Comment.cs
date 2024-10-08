@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DevBlog.Domain.Models
+namespace DevBlog.Service.Models
 {
     public class Comment
     {
@@ -8,8 +8,7 @@ namespace DevBlog.Domain.Models
         public BlogPost BlogPost { get; set; }
         public string Content { get; set; }
         public Account Author { get; set; }
-        public DateTime UpdatedAt { get; set; } = DateTime.Now;
-        public DateTime CreatedAt { get; } = DateTime.Now;
+        public TimeRegistration TimeRegistration { get; set; } = new();
 
         public Comment(BlogPost blogPost, string content, Account author)
         {
@@ -18,14 +17,13 @@ namespace DevBlog.Domain.Models
             Author = author;
         }
 
-        public Comment(Guid id, BlogPost blogPost, string content, Account author, DateTime updatedAt, DateTime createdAt)
+        public Comment(Guid id, BlogPost blogPost, string content, Account author, TimeRegistration timeRegistration)
         {
             Id = id;
             BlogPost = blogPost;
             Content = content;
             Author = author;
-            UpdatedAt = updatedAt;
-            CreatedAt = createdAt;
+            TimeRegistration = timeRegistration;
         }
     }
 }

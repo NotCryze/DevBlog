@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using DevBlog.Domain.Models;
+using DevBlog.Service.Models;
 
-namespace DevBlog.Domain.IRepo
+namespace DevBlog.Service.IRepo
 {
-    public interface ICategoryRepository
+    public interface ICategoryService
     {
         Category? CreateCategory(Category category);
         bool DeleteCategory(Guid id);

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using DevBlog.Domain.Models;
+using DevBlog.Service.Models;
 
-namespace DevBlog.Domain.IRepo
+namespace DevBlog.Service.IRepo
 {
-    public interface IAccountRepository
+    public interface IAccountService
     {
         Account? CreateAccount(Account account);
         bool DeleteAccount(Guid id);

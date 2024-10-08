@@ -1,4 +1,4 @@
-﻿using DevBlog.Domain.Models;
+﻿using DevBlog.Service.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace DevBlog.Web.DTO

@@ -1,5 +1,5 @@
-using DevBlog.Domain.IRepo;
-using DevBlog.Domain.Models;
+using DevBlog.Service.IRepo;
+using DevBlog.Service.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -7,8 +7,8 @@ namespace DevBlog.Web.Pages
 {
     public class AccountsModel : PageModel
     {
-        private readonly IAccountRepository _accountService;
-        public AccountsModel(IAccountRepository accountService)
+        private readonly IAccountService _accountService;
+        public AccountsModel(IAccountService accountService)
         {
             _accountService = accountService;
         }

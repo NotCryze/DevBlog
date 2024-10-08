@@ -1,5 +1,5 @@
-using DevBlog.Domain.IRepo;
-using DevBlog.Domain.Models;
+using DevBlog.Service.IRepo;
+using DevBlog.Service.Models;
 using DevBlog.Web.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -12,12 +12,12 @@ namespace DevBlog.Web.Pages
 {
     public class NewBlogpostModel : PageModel
     {
-        private readonly IAccountRepository _accountService;
-        private readonly IPost<BlogPost> _blogpostService;
-        private readonly ICategoryRepository _categoryService;
-        private readonly ITagRepository _tagService;
+        private readonly IAccountService _accountService;
+        private readonly IPostService<BlogPost> _blogpostService;
+        private readonly ICategoryService _categoryService;
+        private readonly ITagService _tagService;
         private readonly IWebHostEnvironment _environment;
-        public NewBlogpostModel(IAccountRepository accountService, IPost<BlogPost> blogpostService, ICategoryRepository categoryService, ITagRepository tagService, IWebHostEnvironment environment)
+        public NewBlogpostModel(IAccountService accountService, IPostService<BlogPost> blogpostService, ICategoryService categoryService, ITagService tagService, IWebHostEnvironment environment)
         {
             _accountService = accountService;
             _blogpostService = blogpostService;
@@ -57,7 +57,7 @@ namespace DevBlog.Web.Pages
                 return await OnGetAsync();
             }
 
-            List<string> fileNames = new List<string>();
+            List<PostImage> images = new List<PostImage>();
             foreach (IFormFile image in Blogpost.Images)
             {
                 Guid guid = Guid.NewGuid();
@@ -67,7 +67,7 @@ namespace DevBlog.Web.Pages
                 {
                     await image.CopyToAsync(fileStream);
                 }
-                fileNames.Add(fileName);
+                images.Add(new PostImage(fileName));
             }
 
             List<Tag> tags = new List<Tag>();
@@ -84,7 +84,7 @@ namespace DevBlog.Web.Pages
             Account? account = _accountService.GetAccount(((AccountDTO)HttpContext.Items["User"]).Id);
             Category? category = _categoryService.GetCategory(Blogpost.CategoryId);
 
-            BlogPost newPost = new BlogPost(account, Blogpost.Title, Blogpost.Content, fileNames, category, tags);
+            BlogPost newPost = new BlogPost(account, Blogpost.Title, Blogpost.Content, images, category, tags);
             _blogpostService.CreatePost(newPost);
 
             return RedirectToPage("Blogpost", new { id = newPost.Id });

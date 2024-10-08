@@ -1,6 +1,6 @@
-using DevBlog.Domain.IRepo;
-using DevBlog.Domain.Repo;
-using DevBlog.Domain.Models;
+using DevBlog.Service.IRepo;
+using DevBlog.Service.Repo;
+using DevBlog.Service.Models;
 using DevBlog.Web.Middlewares;
 using Microsoft.AspNetCore.Http.Features;
 
@@ -10,12 +10,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 
 builder.Services
-    .AddSingleton<IAccountRepository, AccountRepository>()
-    .AddSingleton<ICategoryRepository, CategoryRepository>()
-    .AddSingleton<ICommentRepository, CommentRepository>()
-    .AddSingleton<ITagRepository, TagRepository>()
-    .AddSingleton<IPost<BlogPost>, BlogPostRepository>()
-    .AddSingleton<IPost<PortfolioPost>, PortfolioPostRepository>();
+    .AddSingleton<IAccountService, AccountService>()
+    .AddSingleton<ICategoryService, CategoryService>()
+    .AddSingleton<ICommentService, CommentService>()
+    .AddSingleton<ITagService, TagService>()
+    .AddSingleton<IPostService<BlogPost>, BlogPostService>()
+    .AddSingleton<IPostService<PortfolioPost>, PortfolioPostService>();
 
 builder.Services.AddSession(options =>
 {
