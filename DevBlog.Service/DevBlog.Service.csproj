@@ -92,11 +92,11 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IRepo\IAccountService.cs" />
-    <Compile Include="IRepo\ICategoryService.cs" />
-    <Compile Include="IRepo\ICommentService.cs" />
-    <Compile Include="IRepo\IPostService.cs" />
-    <Compile Include="IRepo\ITagService.cs" />
+    <Compile Include="IServices\IAccountService.cs" />
+    <Compile Include="IServices\ICategoryService.cs" />
+    <Compile Include="IServices\ICommentService.cs" />
+    <Compile Include="IServices\IPostService.cs" />
+    <Compile Include="IServices\ITagService.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\BlogPost.cs" />
     <Compile Include="Models\Category.cs" />
@@ -106,12 +106,12 @@
     <Compile Include="Models\PostImage.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\TimeRegistration.cs" />
-    <Compile Include="Repo\AccountService.cs" />
-    <Compile Include="Repo\BlogPostService.cs" />
-    <Compile Include="Repo\CategoryService.cs" />
-    <Compile Include="Repo\CommentService.cs" />
-    <Compile Include="Repo\PortfolioPostService.cs" />
-    <Compile Include="Repo\TagService.cs" />
+    <Compile Include="Services\AccountService.cs" />
+    <Compile Include="Services\BlogPostService.cs" />
+    <Compile Include="Services\CategoryService.cs" />
+    <Compile Include="Services\CommentService.cs" />
+    <Compile Include="Services\PortfolioPostService.cs" />
+    <Compile Include="Services\TagService.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
