@@ -1,0 +1,13 @@
+/*
+	BlogPost CRUD
+*/
+
+-- Create BlogPost
+CREATE OR ALTER PROCEDURE spCreateBlogPost
+	@id UNIQUEIDENTIFIER NOT NULL,
+
+AS
+BEGIN
+
+END
+GO
