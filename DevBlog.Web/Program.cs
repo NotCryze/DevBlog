@@ -1,6 +1,6 @@
 using DevBlog.Service.IRepo;
 using DevBlog.Service.Repo;
-using DevBlog.Service.Models;
+using DevBlog.Shared.Models;
 using DevBlog.Web.Middlewares;
 using Microsoft.AspNetCore.Http.Features;
 

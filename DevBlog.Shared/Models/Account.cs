@@ -1,8 +1,7 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace DevBlog.Service.Models
+namespace DevBlog.Shared.Models
 {
     public class Account(string firstName, string lastName, string email, string password, bool isAdmin = false)
     {

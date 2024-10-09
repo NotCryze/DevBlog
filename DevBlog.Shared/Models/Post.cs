@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DevBlog.Service.Models
+namespace DevBlog.Shared.Models
 {
     public abstract class Post(Account account, string title, string content, List<PostImage> images, Category category, List<Tag> tags)
     {

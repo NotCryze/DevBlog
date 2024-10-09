@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using DevBlog.Service.IRepo;
-using DevBlog.Service.Models;
+using DevBlog.Shared.Models;
 using BC = BCrypt.Net.BCrypt;
 
 namespace DevBlog.Service.Repo

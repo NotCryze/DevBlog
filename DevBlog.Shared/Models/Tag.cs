@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DevBlog.Service.Models
+namespace DevBlog.Shared.Models
 {
     public class Tag
     {

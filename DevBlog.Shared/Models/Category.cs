@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DevBlog.Service.Models
+namespace DevBlog.Shared.Models
 {
     public class Category
     {

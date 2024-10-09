@@ -97,15 +97,6 @@
     <Compile Include="IServices\ICommentService.cs" />
     <Compile Include="IServices\IPostService.cs" />
     <Compile Include="IServices\ITagService.cs" />
-    <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\BlogPost.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\Comment.cs" />
-    <Compile Include="Models\PortfolioPost.cs" />
-    <Compile Include="Models\Post.cs" />
-    <Compile Include="Models\PostImage.cs" />
-    <Compile Include="Models\Tag.cs" />
-    <Compile Include="Models\TimeRegistration.cs" />
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\BlogPostService.cs" />
     <Compile Include="Services\CategoryService.cs" />
@@ -124,6 +115,16 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DevBlog.Domain\DevBlog.Domain.csproj">
+      <Project>{81a24b21-f551-40b3-87f8-a3d5fbe07b2a}</Project>
+      <Name>DevBlog.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevBlog.Shared\DevBlog.Shared.csproj">
+      <Project>{342eb0a6-c6fc-4a1e-b742-e8844465274d}</Project>
+      <Name>DevBlog.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using DevBlog.Service.Models;
+using DevBlog.Shared.Models;
 
 namespace DevBlog.Service.IRepo
 {

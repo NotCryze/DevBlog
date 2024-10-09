@@ -1,5 +1,5 @@
 using DevBlog.Service.IRepo;
-using DevBlog.Service.Models;
+using DevBlog.Shared.Models;
 using DevBlog.Web.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;

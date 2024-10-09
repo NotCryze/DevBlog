@@ -1,8 +1,7 @@
-﻿using DevBlog.Service.IRepo;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace DevBlog.Service.Models
+namespace DevBlog.Shared.Models
 {
     public class PortfolioPost : Post
     {

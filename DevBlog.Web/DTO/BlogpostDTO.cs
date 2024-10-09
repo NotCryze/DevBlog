@@ -1,4 +1,4 @@
-﻿using DevBlog.Service.Models;
+﻿using DevBlog.Shared.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace DevBlog.Web.DTO

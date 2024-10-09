@@ -1,4 +1,4 @@
-using DevBlog.Domain.Models;
+using DevBlog.Shared.Models;
 
 namespace DevBlog.UnitTest
 {

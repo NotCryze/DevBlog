@@ -1,4 +1,4 @@
-﻿using DevBlog.Service.Models;
+﻿using DevBlog.Shared.Models;
 using System;
 using System.Collections.Generic;
 

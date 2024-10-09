@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DevBlog.Domain\DevBlog.Domain.csproj" />
+    <ProjectReference Include="..\DevBlog.Shared\DevBlog.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>
