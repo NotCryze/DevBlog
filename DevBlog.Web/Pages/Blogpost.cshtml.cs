@@ -120,7 +120,7 @@ namespace DevBlog.Web.Pages
                 Category? category = _categoryService.GetCategory(EditBlogpost.CategoryId);
 
                 postToEdit.TimeRegistration.UpdatedAt = DateTime.Now;
-                _blogpostService.UpdatePost(new BlogPost(postToEdit.Id, postToEdit.Account, EditBlogpost.Title, EditBlogpost.Content, images.Count > 0 ? images : postToEdit.Images, category, tags, postToEdit.Comments, postToEdit.TimeRegistration));
+                _blogpostService.UpdatePost(new BlogPost(postToEdit.Id, postToEdit.Account, EditBlogpost.Title, EditBlogpost.Content, category, postToEdit.TimeRegistration, images.Count > 0 ? images : postToEdit.Images, tags, postToEdit.Comments));
             }
 
             return RedirectToPage("/Blogpost", new { id = postToEdit.Id });

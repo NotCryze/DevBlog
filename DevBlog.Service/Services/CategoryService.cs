@@ -29,7 +29,7 @@ namespace DevBlog.Service.Services
 
         public Category? GetCategory(Guid id)
         {
-            return _categories.FirstOrDefault(c => c.Id == id);
+            return _categoryRepository.GetCategory(id);
         }
 
         public List<Category> GetCategories()

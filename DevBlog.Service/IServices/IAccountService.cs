@@ -6,7 +6,7 @@ namespace DevBlog.Service.IServices
 {
     public interface IAccountService
     {
-        Account? CreateAccount(Account account);
+        Account? CreateAccount(string firstName, string lastName, string email, string password, bool isAdmin = false);
         bool DeleteAccount(Guid id);
         Account? GetAccount(Guid id);
         Account? GetAccountByEmail(string email);

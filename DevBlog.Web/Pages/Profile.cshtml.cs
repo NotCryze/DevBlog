@@ -25,8 +25,8 @@ namespace DevBlog.Web.Pages
 
             if (Account != null)
             {
-                Account.Blogposts = _blogpostService.GetPostsByAccountId(Account.Id);
-                Account.Portfolioposts = _portfoliopostService.GetPostsByAccountId(Account.Id);
+                Account.BlogPosts = _blogpostService.GetPostsByAccountId(Account.Id);
+                Account.PortfolioPosts = _portfoliopostService.GetPostsByAccountId(Account.Id);
                 if (Account.Id == ((AccountDTO)HttpContext.Items["User"]).Id)
                 {
                     IsAccountOwner = true;

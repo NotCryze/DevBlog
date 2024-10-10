@@ -38,6 +38,41 @@ namespace DevBlog.Domain.Repositories
             return false;
         }
 
+        public Category? GetCategory(Guid id)
+        {
+            SqlCommand cmd = _sql.ExecuteSP("spGetCategory");
+            cmd.Parameters.AddWithValue("@Id", id);
+
+            try
+            {
+                cmd.Connection.Open();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Category category = new Category
+                        {
+                            Id = reader.GetGuid(reader.GetOrdinal("Id")),
+                            Name = reader.GetString(reader.GetOrdinal("Name"))
+                        };
+
+                        return category;
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+
+            return null;
+        }
+
         public List<Category> GetCategories()
         {
             SqlCommand cmd = _sql.ExecuteSP("spGetCategories");
@@ -51,7 +86,8 @@ namespace DevBlog.Domain.Repositories
                 {
                     while (reader.Read())
                     {
-                        Category category = new Category {
+                        Category category = new Category
+                        {
                             Id = reader.GetGuid(reader.GetOrdinal("Id")),
                             Name = reader.GetString(reader.GetOrdinal("Name"))
                         };

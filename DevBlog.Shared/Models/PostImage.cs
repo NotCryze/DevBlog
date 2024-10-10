@@ -1,25 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DevBlog.Shared.Models
 {
-    public class PostImage
+    public class PostImage(string name)
     {
-        public Guid Id { get; set; } = new Guid();
-        public string Name { get; set; }
-
-        public PostImage(string name)
-        {
-            Name = name;
-        }
+        public Guid Id { get; set; } = Guid.NewGuid();
+        public string Name { get; set; } = name;
 
         public PostImage(Guid id, string name)
+            : this(name)
         {
             Id = id;
-            Name = name;
         }
     }
 }

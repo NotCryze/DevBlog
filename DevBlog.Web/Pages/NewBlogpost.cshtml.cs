@@ -84,10 +84,13 @@ namespace DevBlog.Web.Pages
             Account? account = _accountService.GetAccount(((AccountDTO)HttpContext.Items["User"]).Id);
             Category? category = _categoryService.GetCategory(Blogpost.CategoryId);
 
-            BlogPost newPost = new BlogPost(account, Blogpost.Title, Blogpost.Content, images, category, tags);
-            _blogpostService.CreatePost(newPost);
+            BlogPost? newPost = _blogpostService.CreatePost(account, Blogpost.Title, Blogpost.Content, images, category, tags);
 
-            return RedirectToPage("Blogpost", new { id = newPost.Id });
+            if(newPost != null)
+            {
+                return RedirectToPage("Blogpost", new { id = newPost.Id });
+            }
+            return Page();
         }
     }
 }

@@ -35,7 +35,7 @@ namespace DevBlog.Web.Pages
             }
             else
             {
-                if (_accountService.CreateAccount(new Account(Register.FirstName, Register.LastName, Register.Email, Register.Password)) != null)
+                if (_accountService.CreateAccount(Register.FirstName, Register.LastName, Register.Email, Register.Password) != null)
                 {
                     return RedirectToPage("/Login");
                 }

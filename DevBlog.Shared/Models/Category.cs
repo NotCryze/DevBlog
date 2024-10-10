@@ -19,10 +19,16 @@ namespace DevBlog.Shared.Models
             Name = name;
         }
 
-        public Category(Guid id, string name, List<Post> posts)
+        public Category(Guid id, string name)
+            : this(name)
         {
             Id = id;
-            Name = name;
+
+        }
+
+        public Category(Guid id, string name, List<Post> posts)
+            : this (id, name)
+        {
             Posts = posts;
         }
 

@@ -10,10 +10,11 @@ namespace DevBlog.Service.Services
     {
         private List<PortfolioPost> _posts = [];
 
-        public PortfolioPost? CreatePost(PortfolioPost post)
+        public PortfolioPost? CreatePost(Account account, string title, string content, List<PostImage> images, Category category, List<Tag> tags)
         {
-            _posts.Add(post);
-            return post;
+            PortfolioPost newPost = new PortfolioPost(account, title, content, category);
+            _posts.Add(newPost);
+            return newPost;
         }
 
         public PortfolioPost? GetPost(Guid id)

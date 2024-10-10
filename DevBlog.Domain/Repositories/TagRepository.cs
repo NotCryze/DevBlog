@@ -37,6 +37,40 @@ namespace DevBlog.Domain.Repositories
             return false;
         }
 
+        public Tag? GetTag(Guid id)
+        {
+            SqlCommand cmd = _sql.ExecuteSP("spGetTag");
+            cmd.Parameters.AddWithValue("@Id", id);
+
+            try
+            {
+                cmd.Connection.Open();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Tag tag = new Tag
+                        (
+                            reader.GetGuid(reader.GetOrdinal("Id")),
+                            reader.GetString(reader.GetOrdinal("Name"))
+                        );
+
+                        return tag;
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return null;
+        }
+
         public List<Tag> GetTags()
         {
             SqlCommand cmd = _sql.ExecuteSP("spGetTags");
@@ -51,10 +85,10 @@ namespace DevBlog.Domain.Repositories
                     while (reader.Read())
                     {
                         Tag category = new Tag
-                        {
-                            Id = reader.GetGuid(reader.GetOrdinal("Id")),
-                            Name = reader.GetString(reader.GetOrdinal("Name"))
-                        };
+                        (
+                            reader.GetGuid(reader.GetOrdinal("Id")),
+                            reader.GetString(reader.GetOrdinal("Name"))
+                        );
 
                         tags.Add(category);
                     }
@@ -88,10 +122,10 @@ namespace DevBlog.Domain.Repositories
                     while (reader.Read())
                     {
                         Tag tag = new Tag
-                        {
-                            Id = reader.GetGuid(reader.GetOrdinal("Id")),
-                            Name = reader.GetString(reader.GetOrdinal("Name"))
-                        };
+                        (
+                            reader.GetGuid(reader.GetOrdinal("Id")),
+                            reader.GetString(reader.GetOrdinal("Name"))
+                        );
 
                         tags.Add(tag);
                     }
@@ -123,10 +157,10 @@ namespace DevBlog.Domain.Repositories
                     while (reader.Read())
                     {
                         Tag tag = new Tag
-                        {
-                            Id = reader.GetGuid(reader.GetOrdinal("Id")),
-                            Name = reader.GetString(reader.GetOrdinal("Name"))
-                        };
+                        (
+                            reader.GetGuid(reader.GetOrdinal("Id")),
+                            reader.GetString(reader.GetOrdinal("Name"))
+                        );
 
                         return tag;
                     }
@@ -142,6 +176,50 @@ namespace DevBlog.Domain.Repositories
             }
 
             return null;
+        }
+
+        public bool AddTag(Guid tagId, Guid postId)
+        {
+            SqlCommand cmd = _sql.ExecuteSP("spAddTag");
+            cmd.Parameters.AddWithValue("@TagId", tagId);
+            cmd.Parameters.AddWithValue("@PostId", postId);
+
+            try
+            {
+                cmd.Connection.Open();
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return rowsAffected > 0;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return false;
+        }
+
+        public bool RemoveTagsByPost(Guid id)
+        {
+            SqlCommand cmd = _sql.Execute($"DELETE FROM PostTags WHERE [PostId] = '{id}'");
+
+            try
+            {
+                cmd.Connection.Open();
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return rowsAffected > 0;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return false;
         }
     }
 }

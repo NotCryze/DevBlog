@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DevBlog.Domain.IRepositories;
 using DevBlog.Service.IServices;
 using DevBlog.Shared.Models;
 using BC = BCrypt.Net.BCrypt;
@@ -9,38 +10,43 @@ namespace DevBlog.Service.Services
 {
     public class AccountService : IAccountService
     {
-        public AccountService()
+        private readonly IAccountRepository _accountRepository;
+        private readonly ITimeRegistrationRepository _timeRegistrationRepository;
+        public AccountService(IAccountRepository accountRepository, ITimeRegistrationRepository timeRegistrationRepository)
         {
-            CreateAccount(new Account("John", "Doe", "admin@example.com", "1234", true)); //Hard coded admin account
-            CreateAccount(new Account("Benji", "Bob", "benji@bob.com", "1234")); //Hard coded normal account
-            CreateAccount(new Account("L", "Thoro", "L@thoro.com", "1234")); //Hard coded normal account
+            _accountRepository = accountRepository;
+            _timeRegistrationRepository = timeRegistrationRepository;
         }
         private List<Account> _accounts = [];
 
-        public Account? CreateAccount(Account account)
+        public Account? CreateAccount(string firstName, string lastName, string email, string password, bool isAdmin = false)
         {
-            account.Password = BC.EnhancedHashPassword(account.Password);
-            if (CheckAccount(account))
+            Account newAccount = new Account(firstName, lastName, email, password, isAdmin);
+            if (CheckAccount(newAccount))
             {
-                _accounts.Add(account);
-                return account;
+                newAccount.Password = BC.EnhancedHashPassword(newAccount.Password);
+                _timeRegistrationRepository.CreateTimeRegistration(newAccount.TimeRegistration);
+                if (_accountRepository.CreateAccount(newAccount))
+                {
+                    return newAccount;
+                }
             }
             return null;
         }
 
         public Account? GetAccount(Guid id)
         {
-            return _accounts.FirstOrDefault(a => a.Id == id);
+            return _accountRepository.GetAccount(id);
         }
 
         public Account? GetAccountByEmail(string email)
         {
-            return _accounts.FirstOrDefault(a => a.Email == email);
+            return _accountRepository.GetAccountByEmail(email);
         }
 
         public List<Account> GetAccounts()
         {
-            return _accounts;
+            return _accountRepository.GetAccounts();
         }
 
         public bool UpdateAccount(Account newAccount)
@@ -70,7 +76,7 @@ namespace DevBlog.Service.Services
 
         private bool CheckAccount(Account account)
         {
-            return _accounts.FirstOrDefault(a => a.Email == account.Email) == null;
+            return GetAccountByEmail(account.Email) == null;
         }
     }
 }

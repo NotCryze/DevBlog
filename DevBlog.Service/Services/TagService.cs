@@ -31,7 +31,7 @@ namespace DevBlog.Service.Services
 
         public Tag? GetTag(Guid id)
         {
-            return _tags.FirstOrDefault(t => t.Id == id);
+            return _tagRepository.GetTag(id);
         }
 
         public List<Tag> GetTags()

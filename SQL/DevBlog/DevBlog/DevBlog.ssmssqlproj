@@ -3,7 +3,7 @@
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
       <Items>
-        <ConnectionNode Name="(localdb)\MSSQLLocalDB:LAPTOP-2MRGMHN4\Asus">
+        <ConnectionNode Name="(localdb)\MSSQLLocalDB:SAMMYPC\sammy">
           <Created>2024-10-07T09:26:28.8405931+02:00</Created>
           <Type>SQL</Type>
           <Server>(localdb)\MSSQLLocalDB</Server>
@@ -27,6 +27,12 @@
           <AssociatedConnSrvName>(localdb)\MSSQLLocalDB</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>ExampleData.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Indexes.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(localdb)\MSSQLLocalDB:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(localdb)\MSSQLLocalDB</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Indexes.sql</FullPath>
         </FileNode>
         <FileNode Name="StoredProcedures.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(localdb)\MSSQLLocalDB:True</AssociatedConnectionMoniker>

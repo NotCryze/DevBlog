@@ -50,8 +50,12 @@
     <Compile Include="Models\PostImage.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\TimeRegistration.cs" />
+    <Compile Include="PostType.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.OpenApi, Version=1.6.22.0, Culture=neutral, PublicKeyToken=3f5743946376f042, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.OpenApi.1.6.22\lib\netstandard2.0\Microsoft.OpenApi.dll</HintPath>
+    </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.ConfigurationManager, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Configuration.ConfigurationManager.8.0.1\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>

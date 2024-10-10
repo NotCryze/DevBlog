@@ -47,21 +47,31 @@ CREATE OR ALTER PROCEDURE spGetAccount
 	@Id UNIQUEIDENTIFIER
 AS
 BEGIN
-	SELECT Account.*, TimeRegistration.*
-	FROM Account
-	INNER JOIN TimeRegistration
-	ON Account.TimeRegistrationId = TimeRegistration.Id
-	WHERE Account.Id = @Id
+	SELECT *
+	FROM View_Accounts
+	WHERE [Id] = @Id
 END
 GO
 
 CREATE OR ALTER PROCEDURE spGetAccounts
 AS
 BEGIN
-	SELECT Account.*, TimeRegistration.*
+	SELECT Account.*, TimeRegistration.UpdatedAt, TimeRegistration.CreatedAt
 	FROM Account
 	INNER JOIN TimeRegistration
 	ON Account.TimeRegistrationId = TimeRegistration.Id
+END
+GO
+
+CREATE OR ALTER PROCEDURE spGetAccountByEmail
+	@Email NVARCHAR(320)
+AS
+BEGIN
+	SELECT Account.*, TimeRegistration.UpdatedAt, TimeRegistration.CreatedAt
+	FROM Account
+	INNER JOIN TimeRegistration
+	ON Account.TimeRegistrationId = TimeRegistration.Id
+	WHERE [Email] = @Email
 END
 GO
 
@@ -88,11 +98,31 @@ END
 GO
 
 -- Read BlogPost
+CREATE OR ALTER PROCEDURE spGetBlogPost
+	@Id UNIQUEIDENTIFIER
+AS
+BEGIN
+	SELECT *
+	FROM View_OrderedBlogPosts
+	WHERE [Id] = @Id
+END
+GO
+
 CREATE OR ALTER PROCEDURE spGetBlogPosts
 AS
 BEGIN
 	SELECT *
 	FROM View_OrderedBlogPosts
+END
+GO
+
+CREATE OR ALTER PROCEDURE spGetBlogPostsByAccountId
+	@Id UNIQUEIDENTIFIER
+AS
+BEGIN
+	SELECT *
+	FROM View_OrderedBlogPosts
+	WHERE [AuthorId] = @Id
 END
 GO
 
@@ -115,6 +145,16 @@ END
 GO
 
 -- Read Category
+CREATE OR ALTER PROCEDURE spGetCategory
+	@Id UNIQUEIDENTIFIER
+AS
+BEGIN
+	SELECT *
+	FROM Category
+	WHERE [Id] = @Id
+END
+GO
+
 CREATE OR ALTER PROCEDURE spGetCategoryByName
 	@Name NVARCHAR(64)
 AS
@@ -151,7 +191,29 @@ BEGIN
 END
 GO
 
+CREATE OR ALTER PROCEDURE spAddTag
+	@TagId UNIQUEIDENTIFIER,
+	@PostId UNIQUEIDENTIFIER
+AS
+BEGIN
+	INSERT INTO PostTags
+		([TagId], [PostId])
+	VALUES
+		(@TagId, @PostId)
+END
+GO
+
 -- Read Tag
+CREATE OR ALTER PROCEDURE spGetTag
+	@Id UNIQUEIDENTIFIER
+AS
+BEGIN
+	SELECT *
+	FROM Tag
+	WHERE [Id] = @Id
+END
+GO
+
 CREATE OR ALTER PROCEDURE spGetTagByName
 	@Name NVARCHAR(64)
 AS
@@ -179,5 +241,34 @@ BEGIN
 	INNER JOIN PostTags
 	ON @Id = PostTags.PostId
 	WHERE PostTags.TagId = Tag.Id
+END
+GO
+
+/*
+	Post Image
+*/
+
+-- Create Post Image
+CREATE OR ALTER PROCEDURE spCreatePostImage
+	@Id UNIQUEIDENTIFIER,
+	@Name NVARCHAR(max),
+	@PostId UNIQUEIDENTIFIER
+AS
+BEGIN
+	INSERT INTO PostImage
+		([Id], [Name], [PostId])
+	VALUES
+		(@Id, @Name, @PostId)
+END
+GO
+
+-- Read Post Image
+CREATE OR ALTER PROCEDURE spGetPostImagesByPost
+	@Id UNIQUEIDENTIFIER
+AS
+BEGIN
+	SELECT *
+	FROM PostImage
+	WHERE [PostId] = @Id
 END
 GO

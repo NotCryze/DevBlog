@@ -1,14 +1,11 @@
-﻿using DevBlog.Shared.Models;
+﻿using DevBlog.Domain.IRepositories;
+using DevBlog.Shared.Models;
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DevBlog.Domain.Repositories
 {
-    public class TimeRegistrationRepository
+    public class TimeRegistrationRepository : ITimeRegistrationRepository
     {
         private SQL _sql;
         public TimeRegistrationRepository()

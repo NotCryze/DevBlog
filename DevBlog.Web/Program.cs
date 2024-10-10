@@ -13,13 +13,17 @@ builder.Services.AddRazorPages();
 
 builder.Services
     .AddSingleton<IAccountService, AccountService>()
+    .AddSingleton<IAccountRepository, AccountRepository>()
     .AddSingleton<ICategoryService, CategoryService>()
     .AddSingleton<ICategoryRepository, CategoryRepository>()
     .AddSingleton<ICommentService, CommentService>()
     .AddSingleton<ITagService, TagService>()
     .AddSingleton<ITagRepository, TagRepository>()
     .AddSingleton<IPostService<BlogPost>, BlogPostService>()
-    .AddSingleton<IPostService<PortfolioPost>, PortfolioPostService>();
+    .AddSingleton<IBlogPostRepository, BlogPostRepository>()
+    .AddSingleton<IPostService<PortfolioPost>, PortfolioPostService>()
+    .AddSingleton<ITimeRegistrationRepository, TimeRegistrationRepository>()
+    .AddSingleton<IPostImageRepository, PostImageRepository>();
 
 builder.Services.AddSession(options =>
 {
