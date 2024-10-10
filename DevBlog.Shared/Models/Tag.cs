@@ -7,6 +7,7 @@ namespace DevBlog.Shared.Models
         public Guid Id { get; set; } = Guid.NewGuid();
         public string Name { get; set; }
 
+        public Tag() { }
         public Tag(string name)
         {
             Name = name;

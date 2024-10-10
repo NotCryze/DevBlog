@@ -5,15 +5,10 @@ using System.Configuration;
 
 namespace DevBlog.Domain
 {
-    internal class SQL
+    public class SQL
     {
-        private readonly string _connectionString;
+        private readonly string _connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=DevBlog;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
 
-        /// <summary>
-        /// Executes SQL Stored Procedures
-        /// </summary>
-        /// <param name="storedProcedure"></param>
-        /// <returns>SqlCommand</returns>
         public SqlCommand Execute(string storedProcedure)
         {
             SqlCommand sqlCommand = new SqlCommand(storedProcedure, new SqlConnection(_connectionString));
@@ -30,7 +25,7 @@ namespace DevBlog.Domain
 
         public SQL()
         {
-            _connectionString = ConfigurationManager.ConnectionStrings["DevBlogCon"].ConnectionString;
+            //_connectionString = ConfigurationManager.ConnectionStrings["DevBlogCon"].ConnectionString;
         }
 
     }

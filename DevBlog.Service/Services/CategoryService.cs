@@ -1,29 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DevBlog.Service.IRepo;
+using DevBlog.Domain.IRepositories;
+using DevBlog.Service.IServices;
 using DevBlog.Shared.Models;
 
-namespace DevBlog.Service.Repo
+namespace DevBlog.Service.Services
 {
     public class CategoryService : ICategoryService
     {
-        public CategoryService()
+        private readonly ICategoryRepository _categoryRepository;
+        public CategoryService(ICategoryRepository categoryRepository)
         {
-            CreateCategory(new Category("Web Development")); // Hard coded Example Category
-            CreateCategory(new Category("Machine Learning")); // Hard coded Example Category
-            CreateCategory(new Category("Testing & QA")); // Hard coded Example Category
-            CreateCategory(new Category("Game Development")); // Hard coded Example Category
-            CreateCategory(new Category("APIs & Integrations")); // Hard coded Example Category
+            _categoryRepository = categoryRepository;
         }
         private List<Category> _categories = [];
 
-        public Category? CreateCategory(Category category)
+        public Category? CreateCategory(string name)
         {
-            if (CheckCategory(category))
+            Category newCategory = new Category(name);
+            if (CheckCategory(newCategory))
             {
-                _categories.Add(category);
-                return category;
+                _categoryRepository.CreateCategory(newCategory);
+                return newCategory;
             }
             return null;
         }
@@ -35,7 +34,7 @@ namespace DevBlog.Service.Repo
 
         public List<Category> GetCategories()
         {
-            return _categories;
+            return _categoryRepository.GetCategories();
         }
 
         public bool UpdateCategory(Category newCategory)
@@ -65,7 +64,7 @@ namespace DevBlog.Service.Repo
 
         private bool CheckCategory(Category category)
         {
-            return _categories.FirstOrDefault(c => c.Name == category.Name) == null;
+            return _categoryRepository.GetCategoryByName(category.Name) == null;
         }
     }
 }

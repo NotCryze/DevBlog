@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DevBlog.Service.IRepo
+namespace DevBlog.Service.IServices
 {
     public interface IPostService<T> where T : Post
     {

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using DevBlog.Shared.Models;
 
-namespace DevBlog.Service.IRepo
+namespace DevBlog.Service.IServices
 {
     public interface ICategoryService
     {
-        Category? CreateCategory(Category category);
+        Category? CreateCategory(string name);
         bool DeleteCategory(Guid id);
         List<Category> GetCategories();
         Category? GetCategory(Guid id);

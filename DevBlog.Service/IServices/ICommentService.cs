@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using DevBlog.Shared.Models;
 
-namespace DevBlog.Service.IRepo
+namespace DevBlog.Service.IServices
 {
     public interface ICommentService
     {

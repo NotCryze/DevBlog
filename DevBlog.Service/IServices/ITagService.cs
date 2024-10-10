@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using DevBlog.Shared.Models;
 
-namespace DevBlog.Service.IRepo
+namespace DevBlog.Service.IServices
 {
     public interface ITagService
     {
-        Tag? CreateTag(Tag tag);
+        Tag? CreateTag(string name);
         bool DeleteTag(Guid id);
         Tag? GetTag(Guid id);
         List<Tag> GetTags();

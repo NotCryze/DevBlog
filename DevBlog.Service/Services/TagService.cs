@@ -1,29 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DevBlog.Service.IRepo;
+using DevBlog.Domain.IRepositories;
+using DevBlog.Service.IServices;
 using DevBlog.Shared.Models;
 
-namespace DevBlog.Service.Repo
+namespace DevBlog.Service.Services
 {
     public class TagService : ITagService
     {
-        public TagService()
+        private readonly ITagRepository _tagRepository;
+        public TagService(ITagRepository tagRepository)
         {
-            CreateTag(new Tag("HTML")); // Hard coded example tag
-            CreateTag(new Tag("React")); // Hard coded example tag
-            CreateTag(new Tag("Python")); // Hard coded example tag
-            CreateTag(new Tag("Docker")); // Hard coded example tag
-            CreateTag(new Tag("Unity")); // Hard coded example tag
+            _tagRepository = tagRepository;
         }
         private List<Tag> _tags = [];
 
-        public Tag? CreateTag(Tag tag)
+        public Tag? CreateTag(string name)
         {
-            if (CheckTag(tag))
+            Tag newTag = new Tag(name);
+            if (CheckTag(newTag))
             {
-                _tags.Add(tag);
-                return tag;
+                if (_tagRepository.CreateTag(newTag))
+                {
+                    return newTag;
+                }
             }
             return null;
         }
@@ -35,7 +36,7 @@ namespace DevBlog.Service.Repo
 
         public List<Tag> GetTags()
         {
-            return _tags;
+            return _tagRepository.GetTags();
         }
 
         public bool UpdateTag(Tag newTag)
@@ -65,7 +66,7 @@ namespace DevBlog.Service.Repo
 
         private bool CheckTag(Tag tag)
         {
-            return _tags.FirstOrDefault(c => c.Name == tag.Name) == null;
+            return _tagRepository.GetTagByName(tag.Name) == null;
         }
     }
 }

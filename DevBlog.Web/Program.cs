@@ -1,5 +1,7 @@
-using DevBlog.Service.IRepo;
-using DevBlog.Service.Repo;
+using DevBlog.Domain.IRepositories;
+using DevBlog.Domain.Repositories;
+using DevBlog.Service.IServices;
+using DevBlog.Service.Services;
 using DevBlog.Shared.Models;
 using DevBlog.Web.Middlewares;
 using Microsoft.AspNetCore.Http.Features;
@@ -12,8 +14,10 @@ builder.Services.AddRazorPages();
 builder.Services
     .AddSingleton<IAccountService, AccountService>()
     .AddSingleton<ICategoryService, CategoryService>()
+    .AddSingleton<ICategoryRepository, CategoryRepository>()
     .AddSingleton<ICommentService, CommentService>()
     .AddSingleton<ITagService, TagService>()
+    .AddSingleton<ITagRepository, TagRepository>()
     .AddSingleton<IPostService<BlogPost>, BlogPostService>()
     .AddSingleton<IPostService<PortfolioPost>, PortfolioPostService>();
 

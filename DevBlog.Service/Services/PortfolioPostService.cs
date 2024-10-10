@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DevBlog.Service.IRepo;
+using DevBlog.Service.IServices;
 using DevBlog.Shared.Models;
 
-namespace DevBlog.Service.Repo
+namespace DevBlog.Service.Services
 {
     public class PortfolioPostService : IPostService<PortfolioPost>
     {

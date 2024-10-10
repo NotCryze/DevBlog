@@ -8,6 +8,12 @@ namespace DevBlog.Shared.Models
         public Guid Id { get; set; } = Guid.NewGuid();
         public List<Post> Posts { get; set; } = [];
         public string Name { get; set; }
+
+        public Category()
+        {
+                
+        }
+
         public Category(string name)
         {
             Name = name;

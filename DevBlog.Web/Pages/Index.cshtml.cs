@@ -1,4 +1,4 @@
-using DevBlog.Service.IRepo;
+using DevBlog.Service.IServices;
 using DevBlog.Shared.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;

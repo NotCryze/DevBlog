@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DevBlog.Service.IRepo;
+using DevBlog.Service.IServices;
 using DevBlog.Shared.Models;
 using BC = BCrypt.Net.BCrypt;
 
-namespace DevBlog.Service.Repo
+namespace DevBlog.Service.Services
 {
     public class AccountService : IAccountService
     {

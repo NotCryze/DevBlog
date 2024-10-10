@@ -1,4 +1,4 @@
-using DevBlog.Service.IRepo;
+using DevBlog.Service.IServices;
 using DevBlog.Shared.Models;
 using DevBlog.Web.DTO;
 using DevBlog.Web.Extensions;
