@@ -1,3 +1,6 @@
+USE DevBlog
+GO
+
 CREATE UNIQUE INDEX Idx_CategoryId
     ON Category([Id]);
 GO
