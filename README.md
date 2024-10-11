@@ -79,6 +79,10 @@ Dev Blog is a platform where users can share their projects and create posts whe
       - [ ] 6.1.3 CRUD Categories
     - [ ] 6.2 CRUD Comments
 
+## Database Diagram
+![image](https://github.com/user-attachments/assets/1d4b0df7-e864-4c43-830b-33908feefde3)
+
+
 ## Class Diagram
 ### Current Class Diagram
 ![image](https://github.com/user-attachments/assets/1234f8e6-0c4f-405e-98bc-2f5fe55af9ce)
