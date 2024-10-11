@@ -16,9 +16,9 @@ GO
 	BlogPost
 */
 
-CREATE OR ALTER VIEW View_OrderedBlogPosts
+CREATE OR ALTER VIEW View_BlogPosts
 AS
-	SELECT TOP 100 PERCENT 
+	SELECT
 		Post.[Id], Post.[Title], Post.[Content], Post.[PostType],
 		Post.[TimeRegistrationId], TimeRegistration.[UpdatedAt], TimeRegistration.[CreatedAt],
 		Post.[AuthorId], View_Accounts.[FirstName] AS AccountFirstName, View_Accounts.[LastName] AS AccountLastName, View_Accounts.[Email] AS AccountEmail, View_Accounts.[Password] AS AccountPassword, View_Accounts.[IsAdmin] AS AccountIsAdmin, View_Accounts.[TimeRegistrationId] AS AccountTimeRegistrationId, View_Accounts.[UpdatedAt] AS AccountUpdatedAt, View_Accounts.[CreatedAt] AS AccountCreatedAt,
@@ -31,5 +31,4 @@ AS
 	INNER JOIN TimeRegistration
 	ON Post.TimeRegistrationId = TimeRegistration.Id
 	WHERE PostType = 0
-	ORDER BY TimeRegistration.CreatedAt DESC
 GO

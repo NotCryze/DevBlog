@@ -103,8 +103,9 @@ CREATE OR ALTER PROCEDURE spGetBlogPost
 AS
 BEGIN
 	SELECT *
-	FROM View_OrderedBlogPosts
+	FROM View_BlogPosts
 	WHERE [Id] = @Id
+	ORDER BY CreatedAt DESC
 END
 GO
 
@@ -112,7 +113,8 @@ CREATE OR ALTER PROCEDURE spGetBlogPosts
 AS
 BEGIN
 	SELECT *
-	FROM View_OrderedBlogPosts
+	FROM View_BlogPosts
+	ORDER BY CreatedAt DESC
 END
 GO
 
@@ -121,8 +123,9 @@ CREATE OR ALTER PROCEDURE spGetBlogPostsByAccountId
 AS
 BEGIN
 	SELECT *
-	FROM View_OrderedBlogPosts
+	FROM View_BlogPosts
 	WHERE [AuthorId] = @Id
+	ORDER BY CreatedAt DESC
 END
 GO
 
