@@ -7,7 +7,7 @@ Dev Blog is a platform where users can share their projects and create posts whe
 ## Project Details
 | Platform | GUI | Database Solution |
 |----------|-----|-------------------|
-| Web Application  | Razor Pages | Not implemented |
+| Web Application  | Razor Pages | SSMS (TSQL |
 
 ## Changelog
 ### v1.1.0 _(Current Version)_
