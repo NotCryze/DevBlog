@@ -10,6 +10,12 @@ Dev Blog is a platform where users can share their projects and create posts whe
 | Web Application  | Razor Pages | Not implemented |
 
 ## Changelog
+### v1.1.0 _(Current Version)_
+- Added database storage
+
+### v1.0.0
+- Added Razorpages Front-end
+
 ### v0.6.0
 - Added current class diagram
 
