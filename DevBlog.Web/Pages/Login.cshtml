@@ -1,0 +1,29 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.ModelBinding
+@model DevBlog.Web.Pages.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form method="post">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" placeholder="Email" asp-for="Login.Email" />
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" placeholder="Password" asp-for="Login.Password" />
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-primary btn-lg w-100 @(ModelState.GetFieldValidationState("Login") == ModelValidationState.Invalid ? "is-invalid" : "")" type="submit" id="Login">Login</button>
+                        <span asp-validation-for="Login" class="invalid-feedback text-center"></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

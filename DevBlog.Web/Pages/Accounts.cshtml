@@ -1,0 +1,31 @@
+﻿@page
+@model DevBlog.Web.Pages.AccountsModel
+@{
+    ViewData["Title"] = "Accounts";
+}
+
+<h1 class="text-center">All Users</h1>
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form method="get">
+                    <div class="input-group mb-3">
+                        <input class="form-control" id="search" name="search" placeholder="Search" />
+                        <button class="btn btn-primary"><i class="fa-solid fa-magnifying-glass fa-fw"></i></button>
+                    </div>
+                </form>
+                <ul class="list-group list-group-flush">
+                    @foreach (var account in Model.Accounts)
+                    {
+                        <a class="text-decoration-none" asp-page="Profile" asp-route-id="@account.Id">
+                        <li class="list-group-item mb-3">
+                            <h5 class="card-title text-center">@account.FullName <span class="badge rounded-pill text-bg-info">@(account.IsAdmin ? "Admin" : "")</span> <i class="fa-solid fa-up-right-from-square fa-fw"></i></h5>
+                        </li>
+                        </a>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

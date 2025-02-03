@@ -1,0 +1,57 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.ModelBinding
+@model DevBlog.Web.Pages.NewBlogpostModel
+@{
+    ViewData["Title"] = "New Blogpost";
+}
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="text-center">New Blogpost</h1>
+                <form method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="title">Title</label>
+                                <input class="form-control @(ModelState.GetFieldValidationState("Blogpost.Title") == ModelValidationState.Invalid ? "is-invalid" : ModelState.GetValidationState("Blogpost.Title") == ModelValidationState.Valid ? "is-valid" : "" )" placeholder="Title" asp-for="Blogpost.Title" />
+                                <span asp-validation-for="Blogpost.Title" class="invalid-feedback"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="category">Category</label>
+                                <select class="form-control @(ModelState.GetFieldValidationState("Blogpost.CategoryId") == ModelValidationState.Invalid ? "is-invalid" : ModelState.GetValidationState("Blogpost.CategoryId") == ModelValidationState.Valid ? "is-valid" : "" )" asp-items="Model.Categories" asp-for="Blogpost.CategoryId"></select>
+                                <span asp-validation-for="Blogpost.CategoryId" class="invalid-feedback"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="images">Images</label>
+                                <input class="form-control @(ModelState.GetFieldValidationState("Blogpost.Images") == ModelValidationState.Invalid ? "is-invalid" : ModelState.GetValidationState("Blogpost.Images") == ModelValidationState.Valid ? "is-valid" : "" )" type="file" asp-for="Blogpost.Images" accept=".png,.jpg,.jpeg,.gif" multiple />
+                                <span asp-validation-for="Blogpost.Images" class="invalid-feedback"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="tags">Tags</label>
+                                <select class="form-control @(ModelState.GetFieldValidationState("Blogpost.TagIds") == ModelValidationState.Invalid ? "is-invalid" : ModelState.GetValidationState("Blogpost.TagIds") == ModelValidationState.Valid ? "is-valid" : "" )" asp-items="Model.Tags" asp-for="Blogpost.TagIds" multiple></select>
+                                <span asp-validation-for="Blogpost.TagIds" class="invalid-feedback"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="mb-3">
+                                <label for="content">Content</label>
+                                <textarea class="form-control @(ModelState.GetFieldValidationState("Blogpost.Content") == ModelValidationState.Invalid ? "is-invalid" : ModelState.GetValidationState("Blogpost.Content") == ModelValidationState.Valid ? "is-valid" : "" )" rows="3" placeholder="Type here..." asp-for="Blogpost.Content" style="resize:none"></textarea>
+                                <span asp-validation-for="Blogpost.Content" class="invalid-feedback"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-lg w-100">Create</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
